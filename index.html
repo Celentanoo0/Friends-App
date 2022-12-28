@@ -1,14 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    
-    <script src="js/main.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <div class="header__description description">
+                    <h1>Friend's App</h1>
+                    <p>The app for meeting new friends;)</p>
+                </div>
+            </header>
+            <main class="main main_margin">
+                <div class="sidebar sidebar_margin">
+                    <form action="#" class="sidebar__form form">
+                        <div class="form__age-filter">
+                            <h1>By age:</h1>
+                            <input type="radio" name="age" id="age1" />
+                            <label for="age1">
+                                <img
+                                    src="img/svg/iconmonstr-sort-24.svg"
+                                    alt="from"
+                                />
+                            </label>
+                            <input type="radio" name="age" id="age2" />
+                            <label for="age2">
+                                <img
+                                    src="img/svg/iconmonstr-sort-26.svg"
+                                    alt="to"
+                                />
+                            </label>
+                        </div>
+                        <div class="form__name-filter">
+                            <h1>By name:</h1>
+                            <input type="radio" name="name" id="name1" />
+                            <label for="name1">
+                                <img
+                                    src="img/svg/iconmonstr-sort-24.svg"
+                                    alt="from"
+                                />
+                            </label>
+                            <input type="radio" name="name" id="name2" />
+                            <label for="name2">
+                                <img
+                                    src="img/svg/iconmonstr-sort-26.svg"
+                                    alt="to"
+                                />
+                            </label>
+                        </div>
+                        <div class="form__age-from-to-filter">
+                            <h1>Filter by age:</h1>
+                            <input
+                                type="number"
+                                name="age-from"
+                                min="1"
+                                max="120"
+                            />
+                            <p>to</p>
+                            <input
+                                type="number"
+                                name="age-to"
+                                id="age-to"
+                                min="1"
+                                max="120"
+                            />
+                            <input
+                                type="button"
+                                value="filter"
+                                class="age-from-to-btn"
+                            />
+                        </div>
+                        <div class="form__search-by-name">
+                            <input
+                                type="text"
+                                name="name-search"
+                                id="name-search"
+                            />
+                            <input
+                                type="button"
+                                value="Search by name"
+                                id="search-by-name"
+                            />
+                        </div>
+                        <div class="form__gender-filter">
+                            <div class="form__gender-filter_genders">
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    id="gender-all"
+                                />
+                                <label for="gender-all">
+                                    <img
+                                        src="img/svg/iconmonstr-gender-5.svg"
+                                        alt="all"
+                                    />
+                                </label>
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    id="gender-male"
+                                />
+                                <label for="gender-male">
+                                    <img
+                                        src="img/svg/iconmonstr-gender-1.svg"
+                                        alt="male"
+                                    />
+                                </label>
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    id="gender-female"
+                                />
+                                <label for="gender-female">
+                                    <img
+                                        src="img/svg/iconmonstr-gender-2.svg"
+                                        alt="female"
+                                    />
+                                </label>
+                            </div>
+                            <input type="button" value="filter by gender" id="filter-by-gender"/>
+                        </div>
+                        <div class="form__reset">reset</div>
+                    </form>
+                </div>
+                <div class="main-content main-content_margin">
+                    <ul
+                        class="cards-wrapper"
+                        id="paginated-list"
+                        aria-live="polite"
+                    >
+                        <li class="cards-wrapper__card card">
+                            <div class="card__name female">
+                                <p>Marie Abrams</p>
+                            </div>
+                            <div class="card__avatar">
+                                <div class="card__img-hider"></div>
+                                <img src="img/1.jpeg" alt="#" />
+                            </div>
+                            <div class="card__description">
+                                <p>I'm 28 years old</p>
+                                <p>oishfiehhoh@gmail.com</p>
+                                <p>+38(099) 270 8425</p>
+                                <p>qweewq123321</p>
+                            </div>
+                            <div class="card__gender">
+                                <p>Female</p>
+                            </div>
+                        </li>
+                        <li class="cards-wrapper__card card">
+                            <div class="card__name male">
+                                <p>Dwayne Jhonson</p>
+                            </div>
+                            <div class="card__avatar">
+                                <div class="card__img-hider"></div>
+                                <img src="img/2.webp" alt="#" />
+                            </div>
+                            <div class="card__description">
+                                <p>I'm 22 years old</p>
+                                <p>oihoh@gmail.com</p>
+                                <p>+38(099) 270 8425</p>
+                                <p>qweewq123321</p>
+                            </div>
+                            <div class="card__gender">
+                                <p>Male</p>
+                            </div>
+                        </li>
+                        <li class="cards-wrapper__card card">
+                            <div class="card__name male">
+                                <p>Dwayne Jhonson</p>
+                            </div>
+                            <div class="card__avatar">
+                                <div class="card__img-hider"></div>
+                                <img src="img/2.webp" alt="#" />
+                            </div>
+                            <div class="card__description">
+                                <p>I'm 22 years old</p>
+                                <p>oihoh@gmail.com</p>
+                                <p>+38(099) 270 8425</p>
+                                <p>qweewq123321</p>
+                            </div>
+                            <div class="card__gender">
+                                <p>Male</p>
+                            </div>
+                        </li>
+                        <li class="cards-wrapper__card card">
+                            <div class="card__name male">
+                                <p>Dwayne Jhonson</p>
+                            </div>
+                            <div class="card__avatar">
+                                <div class="card__img-hider"></div>
+                                <img src="img/2.webp" alt="#" />
+                            </div>
+                            <div class="card__description">
+                                <p>I'm 22 years old</p>
+                                <p>oihoh@gmail.com</p>
+                                <p>+38(099) 270 8425</p>
+                                <p>qweewq123321</p>
+                            </div>
+                            <div class="card__gender">
+                                <p>Male</p>
+                            </div>
+                        </li>
+                        <li class="cards-wrapper__card card">
+                            <div class="card__name male">
+                                <p>Dwayne Jhonson</p>
+                            </div>
+                            <div class="card__avatar">
+                                <div class="card__img-hider"></div>
+                                <img src="img/2.webp" alt="#" />
+                            </div>
+                            <div class="card__description">
+                                <p>I'm 22 years old</p>
+                                <p>oihoh@gmail.com</p>
+                                <p>+38(099) 270 8425</p>
+                                <p>qweewq123321</p>
+                            </div>
+                            <div class="card__gender">
+                                <p>Male</p>
+                            </div>
+                        </li>
+                        <li class="cards-wrapper__card card">
+                            <div class="card__name male">
+                                <p>Dwayne Jhonson</p>
+                            </div>
+                            <div class="card__avatar">
+                                <div class="card__img-hider"></div>
+                                <img src="img/2.webp" alt="#" />
+                            </div>
+                            <div class="card__description">
+                                <p>I'm 22 years old</p>
+                                <p>oihoh@gmail.com</p>
+                                <p>+38(099) 270 8425</p>
+                                <p>qweewq123321</p>
+                            </div>
+                            <div class="card__gender">
+                                <p>Male</p>
+                            </div>
+                        </li>
+                        <li class="cards-wrapper__card card">
+                            <div class="card__name male">
+                                <p>Dwayne Jhonson</p>
+                            </div>
+                            <div class="card__avatar">
+                                <div class="card__img-hider"></div>
+                                <img src="img/2.webp" alt="#" />
+                            </div>
+                            <div class="card__description">
+                                <p>I'm 22 years old</p>
+                                <p>oihoh@gmail.com</p>
+                                <p>+38(099) 270 8425</p>
+                                <p>qweewq123321</p>
+                            </div>
+                            <div class="card__gender">
+                                <p>Male</p>
+                            </div>
+                        </li>
+                        <li class="cards-wrapper__card card">
+                            <div class="card__name male">
+                                <p>Dwayne Jhonson</p>
+                            </div>
+                            <div class="card__avatar">
+                                <div class="card__img-hider"></div>
+                                <img src="img/2.webp" alt="#" />
+                            </div>
+                            <div class="card__description">
+                                <p>I'm 22 years old</p>
+                                <p>oihoh@gmail.com</p>
+                                <p>+38(099) 270 8425</p>
+                                <p>qweewq123321</p>
+                            </div>
+                            <div class="card__gender">
+                                <p>Male</p>
+                            </div>
+                        </li>
+                        <li class="cards-wrapper__card card">
+                            <div class="card__name male">
+                                <p>Dwayne Jhonson</p>
+                            </div>
+                            <div class="card__avatar">
+                                <div class="card__img-hider"></div>
+                                <img src="img/2.webp" alt="#" />
+                            </div>
+                            <div class="card__description">
+                                <p>I'm 22 years old</p>
+                                <p>oihoh@gmail.com</p>
+                                <p>+38(099) 270 8425</p>
+                                <p>qweewq123321</p>
+                            </div>
+                            <div class="card__gender">
+                                <p>Male</p>
+                            </div>
+                        </li>
+                        <li class="cards-wrapper__card card">
+                            <div class="card__name male">
+                                <p>Dwayne Jhonson</p>
+                            </div>
+                            <div class="card__avatar">
+                                <div class="card__img-hider"></div>
+                                <img src="img/2.webp" alt="#" />
+                            </div>
+                            <div class="card__description">
+                                <p>I'm 22 years old</p>
+                                <p>oihoh@gmail.com</p>
+                                <p>+38(099) 270 8425</p>
+                                <p>qweewq123321</p>
+                            </div>
+                            <div class="card__gender">
+                                <p>Male</p>
+                            </div>
+                        </li>
+                        <li class="cards-wrapper__card card">
+                            <div class="card__name male">
+                                <p>Dwayne Jhonson</p>
+                            </div>
+                            <div class="card__avatar">
+                                <div class="card__img-hider"></div>
+                                <img src="img/2.webp" alt="#" />
+                            </div>
+                            <div class="card__description">
+                                <p>I'm 22 years old</p>
+                                <p>oihoh@gmail.com</p>
+                                <p>+38(099) 270 8425</p>
+                                <p>qweewq123321</p>
+                            </div>
+                            <div class="card__gender">
+                                <p>Male</p>
+                            </div>
+                        </li>
+                        <li class="cards-wrapper__card card">
+                            <div class="card__name male">
+                                <p>Dwayne Jhonson</p>
+                            </div>
+                            <div class="card__avatar">
+                                <div class="card__img-hider"></div>
+                                <img src="img/2.webp" alt="#" />
+                            </div>
+                            <div class="card__description">
+                                <p>I'm 22 years old</p>
+                                <p>oihoh@gmail.com</p>
+                                <p>+38(099) 270 8425</p>
+                                <p>qweewq123321</p>
+                            </div>
+                            <div class="card__gender">
+                                <p>Male</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <nav
+                        class="pagination-container pagination-container_margin-top"
+                    >
+                        <button
+                            class="pagination-button"
+                            id="prev-button"
+                            title="Previous page"
+                            aria-label="Previous page"
+                        >
+                            &lt;
+                        </button>
+                        <div id="pagination-numbers"></div>
+                        <button
+                            class="pagination-button"
+                            id="next-button"
+                            title="Next page"
+                            aria-label="Next page"
+                        >
+                            &gt;
+                        </button>
+                    </nav>
+                </div>
+            </main>
+            <footer class="footer">
+                <p>Copyright 2022 ©</p>
+            </footer>
+        </div>
+        <script src="js/main.js"></script>
+    </body>
 </html>

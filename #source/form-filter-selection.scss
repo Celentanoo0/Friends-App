@@ -1,0 +1,23 @@
+%form-filter-selection {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 700;
+    font-size: 20px;
+    label {
+        display: inline-block;
+        padding: 3px;
+        border-radius: 5px;
+        cursor: pointer;
+        img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+    input:checked + label {
+        box-shadow: 0 0 0 1px black;
+    }
+    input {
+        display: none;
+    }
+}
