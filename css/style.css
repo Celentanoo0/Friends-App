@@ -218,7 +218,7 @@ input::-webkit-inner-spin-button {
   width: 100%;
   height: 1px;
   background: rgb(167, 71, 129);
-  top: -20px;
+  top: -15px;
   left: 0;
 }
 .form__age-from-to-filter::after {
@@ -227,7 +227,7 @@ input::-webkit-inner-spin-button {
   width: 100%;
   height: 1px;
   background: rgb(167, 71, 129);
-  top: 110%;
+  top: 109%;
   left: 0;
 }
 .form__search-by-name {
@@ -236,6 +236,8 @@ input::-webkit-inner-spin-button {
   align-items: center;
   gap: 15px;
   position: relative;
+  font-size: 20px;
+  font-weight: 700;
 }
 .form__search-by-name #name-search {
   padding: 5px 10px;
@@ -268,7 +270,7 @@ input::-webkit-inner-spin-button {
   width: 100%;
   height: 1px;
   background: rgb(167, 71, 129);
-  top: 120%;
+  top: 112%;
   left: 0;
 }
 .form__gender-filter {
@@ -276,26 +278,8 @@ input::-webkit-inner-spin-button {
   flex-direction: column;
   align-items: center;
   gap: 15px;
-}
-.form__gender-filter #filter-by-gender {
-  width: 160px;
-  padding: 10px 0;
-  text-transform: uppercase;
-  font-size: 14px;
   font-weight: 700;
-  background: rgb(127, 127, 255);
-  border: 2px solid rgb(100, 100, 255);
-  box-shadow: 0 2px 5px 1px rgb(127, 127, 255);
-  color: white;
-  border-radius: 10px;
-  transition: all 0.3s;
-  cursor: pointer;
-}
-.form__gender-filter #filter-by-gender:hover {
-  background: rgb(100, 100, 255);
-}
-.form__gender-filter #filter-by-gender:active {
-  background: rgb(127, 127, 255);
+  font-size: 20px;
 }
 .form__reset {
   width: 160px;
