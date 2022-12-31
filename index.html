@@ -138,15 +138,15 @@
                     <form action="#" class="sidebar__form form">
                         <div class="form__age-filter">
                             <h1>Sort by age:</h1>
-                            <input type="radio" name="age" id="age1" />
-                            <label for="age1">
+                            <input type="radio" name="age" id="fromOld" />
+                            <label for="fromOld">
                                 <img
                                     src="img/svg/iconmonstr-sort-24.svg"
                                     alt="from"
                                 />
                             </label>
-                            <input type="radio" name="age" id="age2" />
-                            <label for="age2">
+                            <input type="radio" name="age" id="fromYoung" />
+                            <label for="fromYoung">
                                 <img
                                     src="img/svg/iconmonstr-sort-26.svg"
                                     alt="to"
@@ -155,15 +155,15 @@
                         </div>
                         <div class="form__name-filter">
                             <h1>Sort by name:</h1>
-                            <input type="radio" name="name" id="name1" />
-                            <label for="name1">
+                            <input type="radio" name="name" id="fromAtoZ" />
+                            <label for="fromAtoZ">
                                 <img
                                     src="img/svg/iconmonstr-sort-24.svg"
                                     alt="from"
                                 />
                             </label>
-                            <input type="radio" name="name" id="name2" />
-                            <label for="name2">
+                            <input type="radio" name="name" id="fromZtoA" />
+                            <label for="fromZtoA">
                                 <img
                                     src="img/svg/iconmonstr-sort-26.svg"
                                     alt="to"
@@ -248,6 +248,9 @@
                     </form>
                 </div>
                 <div class="main-content main-content_margin">
+                    <ul class="cards-wrapper _loaded" id="paginated-list" aria-live="polite">
+                        <p class="cards-wrapper__loading">Loading...</p>
+                    </ul>
                     <nav
                         class="pagination-container pagination-container_margin-top"
                     >
