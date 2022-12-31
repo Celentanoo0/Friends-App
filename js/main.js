@@ -27,6 +27,21 @@ getUsers().then((usersArray) => {
     usersWrapper.innerHTML = "";
     usersWrapper.classList.add("_loaded");
 
+    //creating users from array
     usersArray.forEach(usersCreate);
+
+    //sort and creating users by age
+    fromOldSortBtn.addEventListener('click', () => {
+        usersArray.sort((a,b) => b.dob.age - a.dob.age);
+        usersWrapper.innerHTML = "";
+        usersArray.forEach(usersCreate);
+    });
+
+    fromYoungSortBtn.addEventListener('click', () => {
+        usersArray.sort((a,b) => a.dob.age - b.dob.age);
+        usersWrapper.innerHTML = "";
+        usersArray.forEach(usersCreate);
+    })
+
     return usersArray;
 });
