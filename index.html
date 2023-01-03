@@ -135,7 +135,7 @@
             </header>
             <main class="main main_margin">
                 <div class="sidebar sidebar_margin">
-                    <form action="#" class="sidebar__form form">
+                    <form action="#" class="sidebar__form form form-main">
                         <div class="form__age-filter">
                             <h1>Sort by age:</h1>
                             <input type="radio" name="age" id="fromOld" />
@@ -155,15 +155,15 @@
                         </div>
                         <div class="form__name-filter">
                             <h1>Sort by name:</h1>
-                            <input type="radio" name="name" id="fromAtoZ" />
-                            <label for="fromAtoZ">
+                            <input type="radio" name="name" id="fromZtoA" />
+                            <label for="fromZtoA">
                                 <img
                                     src="img/svg/iconmonstr-sort-24.svg"
                                     alt="from"
                                 />
                             </label>
-                            <input type="radio" name="name" id="fromZtoA" />
-                            <label for="fromZtoA">
+                            <input type="radio" name="name" id="fromAtoZ" />
+                            <label for="fromAtoZ">
                                 <img
                                     src="img/svg/iconmonstr-sort-26.svg"
                                     alt="to"
@@ -175,6 +175,7 @@
                             <input
                                 type="number"
                                 name="age-from"
+                                id="age-from"
                                 min="1"
                                 max="120"
                             />
@@ -182,7 +183,7 @@
                             <input
                                 type="number"
                                 name="age-to"
-                                id="age-to"
+                                id="age-too"
                                 min="1"
                                 max="120"
                             />
@@ -211,10 +212,10 @@
                                 <input
                                     type="radio"
                                     name="gender"
-                                    id="gender-all"
+                                    id="gender-all-main"
                                     checked
                                 />
-                                <label for="gender-all">
+                                <label for="gender-all-main">
                                     <img
                                         src="img/svg/iconmonstr-gender-5.svg"
                                         alt="all"
@@ -223,9 +224,9 @@
                                 <input
                                     type="radio"
                                     name="gender"
-                                    id="gender-male"
+                                    id="gender-male-main"
                                 />
-                                <label for="gender-male">
+                                <label for="gender-male-main">
                                     <img
                                         src="img/svg/iconmonstr-gender-1.svg"
                                         alt="male"
@@ -234,9 +235,9 @@
                                 <input
                                     type="radio"
                                     name="gender"
-                                    id="gender-female"
+                                    id="gender-female-main"
                                 />
-                                <label for="gender-female">
+                                <label for="gender-female-main">
                                     <img
                                         src="img/svg/iconmonstr-gender-2.svg"
                                         alt="female"
@@ -249,7 +250,8 @@
                 </div>
                 <div class="main-content main-content_margin">
                     <ul class="cards-wrapper _loaded" id="paginated-list" aria-live="polite">
-                        <p class="cards-wrapper__loading">Loading...</p>
+                        <!-- you can't place a p tag inside an ul, use li instead and put the p tag inside li -->
+                        <p class="cards-wrapper__loading">Loading...</p> 
                     </ul>
                     <nav
                         class="pagination-container pagination-container_margin-top"
@@ -278,7 +280,8 @@
                 <p>Copyright 2022 ©</p>
             </footer>
         </div>
-        <script src="js/usersCreate.js" type="module"></script>
+        <script src="js/createUsers.js" type="module"></script>
+        <script src="js/filterUsers.js" type="module"></script>
         <script src="js/main.js" type="module"></script>
     </body>
 </html>
