@@ -1,5 +1,5 @@
-import { usersCreate } from "./createUsers.js";
-import {usersWrapper} from './main.js'
+import { createUsers } from "./createUsers.js";
+import { usersWrapper } from '../main.js'
 
 export function filterUsers(users){
     let mutatedArr = [...users];
@@ -12,19 +12,19 @@ export function filterUsers(users){
         //sorting by age and name
         if(e.target.closest('#fromOld')){
             mutatedArr.sort((a,b) => b.dob.age - a.dob.age);
-            mutatedArr.forEach(usersCreate);
+            mutatedArr.forEach(createUsers);
         }
         if(e.target.closest('#fromYoung')){
             mutatedArr.sort((a,b) => a.dob.age - b.dob.age);
-            mutatedArr.forEach(usersCreate);
+            mutatedArr.forEach(createUsers);
         }
         if(e.target.closest('#fromZtoA')){
             mutatedArr.sort((a,b) => b.name.first >= a.name.first ? 1 : -1);
-            mutatedArr.forEach(usersCreate);
+            mutatedArr.forEach(createUsers);
         }
         if(e.target.closest('#fromAtoZ')){
             mutatedArr.sort((a,b) => a.name.first >= b.name.first ? 1 : -1);
-            mutatedArr.forEach(usersCreate);
+            mutatedArr.forEach(createUsers);
         }
 
         //filter by age
@@ -34,7 +34,7 @@ export function filterUsers(users){
             if(fromField.value !== '' && toField.value !== ''){
                 mutatedArr = mutatedArr.filter(item => item.dob.age >= fromField.value && item.dob.age <= toField.value);
                 if(mutatedArr.length >= 1){
-                    mutatedArr.forEach(usersCreate);
+                    mutatedArr.forEach(createUsers);
                 } else{
                     const noSuchResults = document.createElement('li');
                     const noSuchResultsText = document.createElement('div')
@@ -49,26 +49,27 @@ export function filterUsers(users){
         if(e.target.closest('#search-by-name')){
             const nameField = document.querySelector('.form-main #name-search');
             mutatedArr = mutatedArr.filter((item) => item.name.first.toLowerCase().includes(nameField.value.toLowerCase()))
-            mutatedArr.forEach(usersCreate);
+            mutatedArr.forEach(createUsers);
         }
 
         //filter by gender
         if(e.target.closest('#gender-all-main')){
             mutatedArr = users.filter((item) => item.gender === 'male' || item.gender === 'female');
-            mutatedArr.forEach(usersCreate);
+            mutatedArr.forEach(createUsers);
         }
         if(e.target.closest('#gender-male-main')){
             mutatedArr = users.filter((item) => item.gender === 'male');
-            mutatedArr.forEach(usersCreate);
+            mutatedArr.forEach(createUsers);
         }
         if(e.target.closest('#gender-female-main')){
             mutatedArr = users.filter((item) => item.gender === 'female');
-            mutatedArr.forEach(usersCreate);
+            mutatedArr.forEach(createUsers);
         }
 
         //reset button
         if(e.target.closest('.form__reset')){
-            users.forEach(usersCreate);
+            mutatedArr = [...users];
+            users.forEach(createUsers);
         }
     })
 }
