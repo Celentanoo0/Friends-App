@@ -30,7 +30,11 @@ export function createUsers(item) {
     const userPhone = document.createElement("p");
     userPhone.innerHTML = `<span>Phone:</span> ${item.phone}`;
     const userDob = document.createElement("p");
-    userDob.innerHTML = `<span>Birthday:</span> ${item.dob.date.substring(0,10).split('-').reverse().join('-')}`;
+    userDob.innerHTML = `<span>Birthday:</span> ${item.dob.date
+        .substring(0, 10)
+        .split("-")
+        .reverse()
+        .join("-")}`;
     userDescr.append(userAge, userPhone, userDob, userMail);
     user.append(userDescr);
 

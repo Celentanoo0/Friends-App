@@ -4,16 +4,16 @@ import { createUsers } from "./modules/createUsers.js";
 import { filterUsers } from "./modules/filterUsers.js";
 import { enablePagination } from "./modules/enablePagination.js";
 
-//const menuBtn = document.querySelector(".menu__icon");
-const pageFilters = document.querySelector(".menu__body");
+const menuBtn = document.querySelector(".menu__icon");
+const pageFilters = document.querySelector(".sidebar");
 const usersWrapper = document.querySelector(".cards-wrapper");
 
-//showing-hiding sidebar on moblie devices
-// menuBtn.addEventListener("click", () => {
-//     pageFilters.classList.toggle("show");
-//     document.body.classList.toggle("_lock");
-//     menuBtn.classList.toggle("_active");
-// });
+//open sidebar on moblie devices
+menuBtn.addEventListener("click", () => {
+    pageFilters.classList.toggle("show");
+    document.body.classList.toggle("_lock");
+    menuBtn.classList.toggle("_active");
+});
 
 //fetching users from random users api, and returning an array of users
 async function getUsers() {
@@ -28,19 +28,22 @@ async function getUsers() {
     }
 }
 
-//adding users to the page
 getUsers()
     .then((usersArray) => {
         usersWrapper.innerHTML = "";
         usersWrapper.classList.add("_loaded");
-        usersArray.forEach(item => {
+
+        usersArray.forEach((item) => {
             item.isShownOnPage = false;
-        })
-        //rendering page from an array
+        });
+
+        //rendering users
         usersArray.forEach(createUsers);
 
+        //rendering pagination
         enablePagination(usersArray);
 
+        //adding filtration
         filterUsers(usersArray);
     })
     .catch((err) => {

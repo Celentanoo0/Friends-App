@@ -441,7 +441,7 @@ input::-webkit-inner-spin-button {
 }
 
 .pagination-container_margin-top {
-  margin: 10px 0 0 0;
+  margin: 10px 0 10px 0;
 }
 
 .pagination-number,
@@ -555,20 +555,22 @@ input::-webkit-inner-spin-button {
   .menu__icon::after {
     bottom: 0;
   }
-  .menu__body {
+  .sidebar {
+    display: block;
     position: fixed;
+    margin: 0;
     z-index: 5000;
     background: rgb(214, 149, 188);
     top: 0;
-    left: -100%;
+    left: -150%;
     width: 100%;
     height: 100%;
     transition: all 0.3s;
   }
-  .menu__body form::after {
+  .sidebar form::after {
     top: 87%;
   }
-  .menu__body.show {
+  .sidebar.show {
     left: 0;
   }
 }
