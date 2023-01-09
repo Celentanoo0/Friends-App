@@ -178,19 +178,22 @@
                                 id="age-from"
                                 min="1"
                                 max="120"
+                                placeholder="21"
                             />
                             <p>to</p>
                             <input
                                 type="number"
                                 name="age-to"
-                                id="age-too"
+                                id="age-to"
                                 min="1"
                                 max="120"
+                                placeholder="32"
                             />
                             <input
                                 type="button"
                                 value="filter"
                                 class="age-from-to-btn"
+                                id="filter-age"
                             />
                         </div>
                         <div class="form__search-by-name">
@@ -199,10 +202,11 @@
                                 type="text"
                                 name="name-search"
                                 id="name-search"
+                                placeholder="Emily"
                             />
                             <input
                                 type="button"
-                                value="Search by name"
+                                value="Filter"
                                 id="search-by-name"
                             />
                         </div>
@@ -212,10 +216,10 @@
                                 <input
                                     type="radio"
                                     name="gender"
-                                    id="gender-all-main"
+                                    id="gender-all"
                                     checked
                                 />
-                                <label for="gender-all-main">
+                                <label for="gender-all">
                                     <img
                                         src="img/svg/iconmonstr-gender-5.svg"
                                         alt="all"
@@ -224,9 +228,9 @@
                                 <input
                                     type="radio"
                                     name="gender"
-                                    id="gender-male-main"
+                                    id="gender-male"
                                 />
-                                <label for="gender-male-main">
+                                <label for="gender-male">
                                     <img
                                         src="img/svg/iconmonstr-gender-1.svg"
                                         alt="male"
@@ -235,9 +239,9 @@
                                 <input
                                     type="radio"
                                     name="gender"
-                                    id="gender-female-main"
+                                    id="gender-female"
                                 />
-                                <label for="gender-female-main">
+                                <label for="gender-female">
                                     <img
                                         src="img/svg/iconmonstr-gender-2.svg"
                                         alt="female"
@@ -245,13 +249,14 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="form__reset">reset</div>
+                        <div class="form__reset" id="form-reset">reset</div>
                     </form>
                 </div>
                 <div class="main-content main-content_margin">
                     <ul class="cards-wrapper _loaded" id="paginated-list" aria-live="polite">
-                        <!-- you can't place a p tag inside an ul, use li instead and put the p tag inside li -->
-                        <p class="cards-wrapper__loading">Loading...</p> 
+                        <li>
+                            <div class="cards-wrapper__loading">Loading...</div>
+                        </li>
                     </ul>
                     <nav
                         class="pagination-container pagination-container_margin-top"

@@ -84,6 +84,11 @@ input::-webkit-inner-spin-button {
     &__age-filter {
         @extend %form-filter-selection;
     }
+
+    #age-from:focus::placeholder, #age-to:focus::placeholder, #name-search:focus::placeholder{
+        color: transparent;
+    }
+
     &__name-filter {
         @extend %form-filter-selection;
     }

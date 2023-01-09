@@ -6,7 +6,7 @@ import { enablePagination } from "./modules/enablePagination.js";
 
 //const menuBtn = document.querySelector(".menu__icon");
 const pageFilters = document.querySelector(".menu__body");
-export const usersWrapper = document.querySelector(".cards-wrapper");
+const usersWrapper = document.querySelector(".cards-wrapper");
 
 //showing-hiding sidebar on moblie devices
 // menuBtn.addEventListener("click", () => {
@@ -33,14 +33,15 @@ getUsers()
     .then((usersArray) => {
         usersWrapper.innerHTML = "";
         usersWrapper.classList.add("_loaded");
-
+        usersArray.forEach(item => {
+            item.isShownOnPage = false;
+        })
         //rendering page from an array
         usersArray.forEach(createUsers);
 
+        enablePagination(usersArray);
+
         filterUsers(usersArray);
-    })
-    .then(() => {
-        enablePagination();
     })
     .catch((err) => {
         console.error(`Error during handling a result: ${err.message}`);

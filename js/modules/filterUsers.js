@@ -1,75 +1,88 @@
 import { createUsers } from "./createUsers.js";
-import { usersWrapper } from '../main.js'
+import { enablePagination } from "./enablePagination.js";
+import { rerenderSucces, rerenderError, genderFilter } from "./rerenderPage.js";
 
 export function filterUsers(users){
-    let mutatedArr = [...users];
     const formWrapper = document.querySelector('.form-main');
+    const paginationNums = document.querySelector('#pagination-numbers');
+    const usersWrapper = document.querySelector(".cards-wrapper");
+    const resetPage = [...users];
+
     formWrapper.addEventListener('click', (e) => {
-        
-        if(e.target !== formWrapper){
-            usersWrapper.innerHTML = "";
-        }
-        //sorting by age and name
+        //sort by age
         if(e.target.closest('#fromOld')){
-            mutatedArr.sort((a,b) => b.dob.age - a.dob.age);
-            mutatedArr.forEach(createUsers);
+            users.sort((a,b) => b.dob.age - a.dob.age);
+            rerenderSucces(users);
         }
         if(e.target.closest('#fromYoung')){
-            mutatedArr.sort((a,b) => a.dob.age - b.dob.age);
-            mutatedArr.forEach(createUsers);
+            users.sort((a,b) => a.dob.age - b.dob.age);
+            rerenderSucces(users);
         }
+
+        //sort by name
         if(e.target.closest('#fromZtoA')){
-            mutatedArr.sort((a,b) => b.name.first >= a.name.first ? 1 : -1);
-            mutatedArr.forEach(createUsers);
+            users.sort((a,b) => b.name.first.toLowerCase() >= a.name.first.toLowerCase() ? 1 : -1);
+            rerenderSucces(users);
         }
         if(e.target.closest('#fromAtoZ')){
-            mutatedArr.sort((a,b) => a.name.first >= b.name.first ? 1 : -1);
-            mutatedArr.forEach(createUsers);
+            users.sort((a,b) => a.name.first.toLowerCase() >= b.name.first.toLowerCase() ? 1 : -1);
+            rerenderSucces(users);
         }
 
         //filter by age
-        if(e.target.closest('.age-from-to-btn')){
-            const fromField = document.querySelector('#age-from');
-            const toField = document.querySelector('#age-too');
-            if(fromField.value !== '' && toField.value !== ''){
-                mutatedArr = mutatedArr.filter(item => item.dob.age >= fromField.value && item.dob.age <= toField.value);
-                if(mutatedArr.length >= 1){
-                    mutatedArr.forEach(createUsers);
-                } else{
-                    const noSuchResults = document.createElement('li');
-                    const noSuchResultsText = document.createElement('div')
-                    noSuchResultsText.innerHTML = 'There is no any users with these parametras. Im sorry:(';
-                    noSuchResults.append(noSuchResultsText);
-                    document.querySelector('.cards-wrapper').append(noSuchResults);
-                }
-            };
+        if(e.target.closest('#filter-age')){
+            const fromAge = document.querySelector('#age-from');
+            const toAge = document.querySelector('#age-to');
+            if(fromAge.value !== '' && toAge.value !== ''){
+                users = users.filter((item) => item.dob.age >= fromAge.value && item.dob.age <= toAge.value);
+                users.length >= 1 ? rerenderSucces(users) : rerenderError(users);
+            }
         }
 
         //filter by name
         if(e.target.closest('#search-by-name')){
-            const nameField = document.querySelector('.form-main #name-search');
-            mutatedArr = mutatedArr.filter((item) => item.name.first.toLowerCase().includes(nameField.value.toLowerCase()))
-            mutatedArr.forEach(createUsers);
+            const nameField = document.querySelector('#name-search');
+            if(nameField.value !== ''){
+                users = users.filter((item) => item.name.first.toLowerCase().includes(nameField.value.toLowerCase()));
+                users.length >= 1 ? rerenderSucces(users) : rerenderError(users);
+            }
         }
 
         //filter by gender
-        if(e.target.closest('#gender-all-main')){
-            mutatedArr = users.filter((item) => item.gender === 'male' || item.gender === 'female');
-            mutatedArr.forEach(createUsers);
+        if(e.target.closest('#gender-all')){
+            const allFiltered = genderFilter.length >= 1 ? [...genderFilter] : [...users];
+            usersWrapper.innerHTML = "";
+            allFiltered.forEach((item) => createUsers(item));
+            paginationNums.innerHTML = "";
+            enablePagination(users);
         }
-        if(e.target.closest('#gender-male-main')){
-            mutatedArr = users.filter((item) => item.gender === 'male');
-            mutatedArr.forEach(createUsers);
+        if(e.target.closest('#gender-male')){
+            const maleFiltered = genderFilter.length >= 1 ? genderFilter.filter((item) => item.gender === 'male') : users.filter((item) => item.gender === 'male');
+            if(maleFiltered.length >= 1){
+                usersWrapper.innerHTML = "";
+                maleFiltered.forEach((item) => createUsers(item));
+                paginationNums.innerHTML = "";
+                enablePagination(maleFiltered);
+            } else{
+                rerenderError(maleFiltered);
+            }
         }
-        if(e.target.closest('#gender-female-main')){
-            mutatedArr = users.filter((item) => item.gender === 'female');
-            mutatedArr.forEach(createUsers);
+        if(e.target.closest('#gender-female')){
+            const femaleFiltered = genderFilter.length >= 1 ? genderFilter.filter((item) => item.gender === 'female') : users.filter((item) => item.gender === 'female');
+            if(femaleFiltered.length >= 1){
+                usersWrapper.innerHTML = "";
+                femaleFiltered.forEach((item) => createUsers(item));
+                paginationNums.innerHTML = "";
+                enablePagination(femaleFiltered);
+            } else{
+                rerenderError(femaleFiltered)
+            }
         }
 
-        //reset button
-        if(e.target.closest('.form__reset')){
-            mutatedArr = [...users];
-            users.forEach(createUsers);
+        //reset page
+        if(e.target.closest('#form-reset')){
+            users = [...resetPage];
+            rerenderSucces(resetPage);
         }
     })
 }

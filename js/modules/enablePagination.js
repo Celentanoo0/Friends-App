@@ -1,4 +1,4 @@
-export function enablePagination() {
+export function enablePagination(usersArray) {
     const paginationNumbers = document.getElementById("pagination-numbers");
     const paginatedList = document.getElementById("paginated-list");
     const listItems = paginatedList.querySelectorAll("li");
@@ -77,10 +77,19 @@ export function enablePagination() {
 
         listItems.forEach((item, index) => {
             item.classList.add("hidden");
+            //item.removeAttribute('id');
             if (index >= prevRange && index < currRange) {
                 item.classList.remove("hidden");
+                //item.setAttribute('id', 'to-filter');
+                
             }
         });
+        usersArray.forEach((item, index) => {
+            item.isShownOnPage = false;
+            if(index >= prevRange && index < currRange){
+                item.isShownOnPage = true;
+            }
+        })
     }
 
     function handleActivePageNumber() {

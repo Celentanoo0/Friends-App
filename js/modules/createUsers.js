@@ -1,9 +1,7 @@
-import {usersWrapper} from '../main.js'
-
 export function createUsers(item) {
+    const usersWrapper = document.querySelector(".cards-wrapper");
     const user = document.createElement("li");
-    user.classList.add("cards-wrapper__card");
-    user.classList.add("card");
+    user.classList.add("cards-wrapper__card", "card", "hidden");
     usersWrapper.append(user);
 
     const userName = document.createElement("div");
@@ -32,7 +30,7 @@ export function createUsers(item) {
     const userPhone = document.createElement("p");
     userPhone.innerHTML = `<span>Phone:</span> ${item.phone}`;
     const userDob = document.createElement("p");
-    userDob.innerHTML = `<span>Birthday:</span> ${item.dob.date.substring(0,10)}`;
+    userDob.innerHTML = `<span>Birthday:</span> ${item.dob.date.substring(0,10).split('-').reverse().join('-')}`;
     userDescr.append(userAge, userPhone, userDob, userMail);
     user.append(userDescr);
 

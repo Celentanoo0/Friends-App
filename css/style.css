@@ -184,6 +184,15 @@ input::-webkit-inner-spin-button {
           user-select: none;
   position: relative;
 }
+.form #age-from:focus::-moz-placeholder, .form #age-to:focus::-moz-placeholder, .form #name-search:focus::-moz-placeholder {
+  color: transparent;
+}
+.form #age-from:focus:-ms-input-placeholder, .form #age-to:focus:-ms-input-placeholder, .form #name-search:focus:-ms-input-placeholder {
+  color: transparent;
+}
+.form #age-from:focus::placeholder, .form #age-to:focus::placeholder, .form #name-search:focus::placeholder {
+  color: transparent;
+}
 .form__age-from-to-filter {
   display: flex;
   flex-direction: column;
