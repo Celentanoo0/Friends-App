@@ -1,4 +1,4 @@
-export function enablePagination(usersArray) {
+export function enablePagination() {
     const paginationNumbers = document.getElementById("pagination-numbers");
     const paginatedList = document.getElementById("paginated-list");
     const listItems = paginatedList.querySelectorAll("li");
@@ -79,12 +79,6 @@ export function enablePagination(usersArray) {
             item.classList.add("hidden");
             if (index >= prevRange && index < currRange) {
                 item.classList.remove("hidden");
-            }
-        });
-        usersArray.forEach((item, index) => {
-            item.isShownOnPage = false;
-            if (index >= prevRange && index < currRange) {
-                item.isShownOnPage = true;
             }
         });
     }

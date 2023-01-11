@@ -10,7 +10,6 @@ export function filterUsers(usersArray) {
     let users = [...usersArray];
 
     formWrapper.addEventListener("click", (e) => {
-        //sort by age
         if (e.target.closest("#fromOld")) {
             users.sort((a, b) => b.dob.age - a.dob.age);
             users.length >= 1 ? rerenderSucces(users) : rerenderError(users);
@@ -20,7 +19,6 @@ export function filterUsers(usersArray) {
             users.length >= 1 ? rerenderSucces(users) : rerenderError(users);
         }
 
-        //sort by name
         if (e.target.closest("#fromZtoA")) {
             users.sort((a, b) =>
                 b.name.first.toLowerCase() >= a.name.first.toLowerCase()
@@ -38,7 +36,6 @@ export function filterUsers(usersArray) {
             users.length >= 1 ? rerenderSucces(users) : rerenderError(users);
         }
 
-        //filter by age
         if (e.target.closest("#filter-age")) {
             const fromAge = document.querySelector("#age-from");
             const toAge = document.querySelector("#age-to");
@@ -54,7 +51,6 @@ export function filterUsers(usersArray) {
             }
         }
 
-        //filter by name
         if (e.target.closest("#search-by-name")) {
             const nameField = document.querySelector("#name-search");
             if (nameField.value !== "") {
@@ -69,7 +65,6 @@ export function filterUsers(usersArray) {
             }
         }
 
-        //filter by gender
         if (e.target.closest("#gender-all")) {
             const genderFiltrated =
                 genderFilter.length >= 1 ? [...genderFilter] : [...users];
@@ -96,7 +91,6 @@ export function filterUsers(usersArray) {
                 : rerenderError(genderFiltrated);
         }
 
-        //reset page
         if (e.target.closest("#form-reset")) {
             users = [...usersArray];
             rerenderSucces(usersArray);
