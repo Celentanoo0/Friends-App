@@ -5,9 +5,9 @@ import {
     genderFilter,
 } from "./rerenderPage.js";
 
-export function filterUsers(users) {
+export function filterUsers(usersArray) {
     const formWrapper = document.querySelector(".form-main");
-    const resetPage = [...users];
+    let users = [...usersArray];
 
     formWrapper.addEventListener("click", (e) => {
         //sort by age
@@ -98,8 +98,8 @@ export function filterUsers(users) {
 
         //reset page
         if (e.target.closest("#form-reset")) {
-            users = [...resetPage];
-            rerenderSucces(resetPage);
+            users = [...usersArray];
+            rerenderSucces(usersArray);
         }
     });
 }
