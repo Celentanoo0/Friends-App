@@ -3,17 +3,11 @@
 import { createUsers } from "./modules/createUsers.js";
 import { filterUsers } from "./modules/filterUsers.js";
 import { enablePagination } from "./modules/enablePagination.js";
+import { enableSidebar } from "./modules/enableSidebar.js";
 
-const menuBtn = document.querySelector(".menu__icon");
-const pageFilters = document.querySelector(".sidebar");
 const usersWrapper = document.querySelector(".cards-wrapper");
 
-//open sidebar on moblie devices
-menuBtn.addEventListener("click", () => {
-    pageFilters.classList.toggle("show");
-    document.body.classList.toggle("_lock");
-    menuBtn.classList.toggle("_active");
-});
+enableSidebar();
 
 //fetching users from random users api, and returning an array of users
 async function getUsers() {
