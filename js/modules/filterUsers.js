@@ -94,6 +94,16 @@ export function filterUsers(usersArray) {
         if (e.target.closest("#form-reset")) {
             users = [...usersArray];
             rerenderSucces(usersArray);
+
+            const ageFields = Array.from(document.querySelectorAll('input[type="number"]'))
+            const fields = [document.querySelector('#name-search[type="text"]'), ...ageFields];
+            fields.forEach((item) => item.value = '')
+
+            const checkedBtns = Array.from(document.querySelectorAll('input[type="radio"]'));
+            checkedBtns.forEach((item) => item.checked = false);
+            
+            const genderAll = document.querySelector('#gender-all');
+            genderAll.checked = true;
         }
     });
 }
