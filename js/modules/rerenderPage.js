@@ -16,7 +16,7 @@ export function rerenderSucces(users) {
 
     genderFilter = [...users];
 
-    if (window.innerWidth < 690) {
+    if (window.matchMedia('(max-width: 690px)').matches) {
         pageFilters.classList.toggle("show");
         document.body.classList.toggle("_lock");
         menuBtn.classList.toggle("_active");
@@ -30,7 +30,7 @@ export function rerenderSuccesGender(users) {
     paginationNums.innerHTML = "";
     enablePagination(users);
 
-    if (window.innerWidth < 690) {
+    if (window.matchMedia('(max-width: 690px)').matches) {
         pageFilters.classList.toggle("show");
         document.body.classList.toggle("_lock");
         menuBtn.classList.toggle("_active");
@@ -44,6 +44,7 @@ export function rerenderError(users) {
     const errorMsg = document.createElement("div");
     errorMsg.style.fontSize = "26px";
     errorMsg.style.fontWeight = 700;
+    errorMsg.style.textAlign = 'center'
     errorMsg.innerHTML = "Can't find any user by this filters :(";
     error.append(errorMsg);
     usersWrapper.append(error);
@@ -53,7 +54,7 @@ export function rerenderError(users) {
     users.length = 0;
     enablePagination(users);
 
-    if (window.innerWidth < 690) {
+    if (window.matchMedia('(max-width: 690px)').matches) {
         pageFilters.classList.toggle("show");
         document.body.classList.toggle("_lock");
         menuBtn.classList.toggle("_active");
